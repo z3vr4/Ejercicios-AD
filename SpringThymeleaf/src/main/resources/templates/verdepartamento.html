@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Departamento</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Detalles del Departamento</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Número</th>
+            <td th:text="${departamento.id}"></td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td th:text="${departamento.nombre}"></td>
+        </tr>
+        <tr>
+            <th>Ubicación</th>
+            <td th:text="${departamento.ubicacion}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="button-container">
+        <a href="/verdepartamentos" class="button">Volver</a>
+    </div>
+</div>
+</body>
+</html>
