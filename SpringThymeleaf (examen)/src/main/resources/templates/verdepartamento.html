@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar detalles de un departamento</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Detalles del Departamento</h1>
+    <table>
+        <tbody>
+        <tr>
+            <td>Número</td>
+            <td th:text="${departamento.id}" ></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td th:text="${departamento.nombre}"></td>
+        </tr>
+        <tr>
+            <td>Ubicación</td>
+            <td th:text="${departamento.ubicacion}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="button-container">
+        <a href="/verdepartamentos" class="button">Volver</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar departamentos</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <script>
+        function cambiarUbicacion() {
+            var ubicacion = document.getElementById("selectUbicacion").value;
+            if (ubicacion!=="all")
+                window.location.href="/verdepartamentos?ubicacion=" + ubicacion;
+            else
+                window.location.href="/verdepartamentos";
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Lista de Departamentos</h1>
+    <select id="selectUbicacion" onchange="cambiarUbicacion()">
+        <option value="">Selecciona una ubicación</option>
+        <option value="all">Todas</option>
+        <option th:each="ubicacion : ${ubicaciones}"
+                th:value="${ubicacion}"
+                th:text="${ubicacion}">
+        </option>
+    </select>
+    <table>
+        <thead>
+        <tr>
+            <th>Número</th>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="departamento : ${departamentos}">
+            <td th:text="${departamento.id}" ></td>
+            <td th:text="${departamento.nombre}"></td>
+            <td th:text="${departamento.ubicacion}"></td>
+            <td><a th:href="${'/verdepartamento?id=' + departamento.id}">Detalles</a>
+        </tr>
+        </tbody>
+    </table>
+    <div class="button-container">
+        <a href="/" class="button">Volver a la página de inicio</a>
+    </div>
+</div>
+</body>
+</html>

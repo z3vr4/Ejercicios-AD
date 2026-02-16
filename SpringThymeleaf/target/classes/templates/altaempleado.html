@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Nuevo Empleado</title>
+  <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<div class="container">
+  <h1>Crear Nuevo Empleado</h1>
+
+  <form action="#"
+        th:action="@{/altaempleado}"
+        th:object="${empleado}"
+        method="post">
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="puesto">Puesto:</label>
+      <input type="text" id="puesto" name="puesto" required>
+    </div>
+
+    <div class="form-group">
+      <label for="departamento">Departamento:</label>
+      <select id="departamento" name="departamento.id" required>
+        <option value="" disabled selected>Seleccione un departamento</option>
+        <option th:each="departamento : ${departamentos}"
+                th:value="${departamento.id}"
+                th:text="${departamento.nombre}">
+        </option>
+      </select>
+    </div>
+
+    <button class="form_button" type="submit">Crear Empleado</button>
+  </form>
+
+  <div th:if="${mensaje}">
+    <p th:text="${mensaje}"></p>
+  </div>
+
+  <div class="button-container">
+    <a href="/" class="button">Volver a la página de inicio</a>
+  </div>
+</div>
+</body>
+</html>
